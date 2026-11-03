@@ -1,3 +1,4 @@
+package ubi;
 
 public class Main {
 
