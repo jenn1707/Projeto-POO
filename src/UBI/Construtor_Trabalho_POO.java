@@ -72,4 +72,22 @@ public class Construtor_Trabalho_POO {
 			this.genero[d] = genero[d];
 		}
 	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public String getSubTitulo() {
+		return subTitulo;
+	}
+	public LocalDate getData() {
+		return data;
+	}
+	public int getIdademin() {
+		return idademin;
+	}
+	public double getAvaliacao() {
+		return avaliacao;
+	}
+	public double getDuracao() {
+		return duracao;
+	}
 }
