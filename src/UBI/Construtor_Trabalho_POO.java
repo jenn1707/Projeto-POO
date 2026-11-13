@@ -1,6 +1,8 @@
 package UBI;
 import java.time.LocalDate;
-public class Construtor_Trabalho_POO {
+import java.io.Serializable;
+public class Construtor_Trabalho_POO implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String titulo;
 	private String subTitulo;
 	private LocalDate data;
@@ -50,32 +52,25 @@ public class Construtor_Trabalho_POO {
 	}
 
 	public void setDiretor(String[] diretor) {
-		for (int a = 0; a < diretor.length; a++) {
-			this.diretor[a] = diretor[a];
-		}
+			this.diretor = diretor;
 	}
 
 	public void setEscritor(String[] escritor) {
-		for (int b = 0; b < escritor.length; b++) {
-			this.escritor[b] = escritor[b];
-		}
+			this.escritor = escritor;
 	}
 
-	public void setEstrela(String[] estrelas) {
-		for (int c = 0; c < estrelas.length; c++) {
-			this.estrelas[c] = estrelas[c];
-		}
+	public void setEstrelas(String[] estrelas) {
+		this.estrelas = estrelas;
 	}
-
+	
 	public void setGenero(String[] genero) {
-		for (int d = 0; d < genero.length; d++) {
-			this.genero[d] = genero[d];
-		}
-	}
+		this.genero = genero;
+}
+
 	public String getTitulo() {
 		return titulo;
 	}
-	public String getSubTitulo() {
+	public String getsubTitulo() {
 		return subTitulo;
 	}
 	public LocalDate getData() {
@@ -90,4 +85,17 @@ public class Construtor_Trabalho_POO {
 	public double getDuracao() {
 		return duracao;
 	}
+	public String[] getDiretor() {
+		return diretor;
+	}
+	public String[] getEscritor() {
+		return escritor;
+	}
+	public String[] getEstrelas() {
+		return estrelas;
+	}
+	public String[] getGenero() {
+		return genero;
+	}
+
 }
