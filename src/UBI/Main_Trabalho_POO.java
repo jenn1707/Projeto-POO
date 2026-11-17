@@ -55,8 +55,29 @@ public class Main_Trabalho_POO {
 		filme2.setEstrelas(listaEstrelas);
 		filme2.setGenero(listaGeneros);
 		
-		System.out.println();
-		System.out.println(filme2.toString());
+		System.out.println("\n" + filme2.toString());
+		
+		
+		Construtor_Trabalho_POO filme3 = new Construtor_Trabalho_POO();
+		dataEstreia = LocalDate.of(2011, 9, 22);
+		filme2.setTitulo("Crazy, Stupid, Love");
+		filme2.setsubTitulo(".");
+		filme2.setData(dataEstreia);
+		filme2.setIdademin(13);
+		filme2.setAvaliacao(7.4);
+		filme2.setDuracao(118);
+		
+		listaDiretores = new String[] {"Gleen Ficarra"};
+		listaEscritores = new String[] {"Dan Fogelman"};
+		listaEstrelas = new String[] {"Steve Carell", "Ryan Gosling", "Julianne Moore"};
+		listaGeneros =  new String[] {"Comedy", "Romance", "feel-Good Romance"};
+		
+		filme3.setDiretor(listaDiretores);
+		filme3.setEscritor(listaEscritores);
+		filme3.setEstrelas(listaEstrelas);
+		filme3.setGenero(listaGeneros);
+		
+		System.out.println("\n" + filme3.toString());
 		
 		
 		
