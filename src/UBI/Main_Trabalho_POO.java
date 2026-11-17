@@ -286,12 +286,13 @@ public class Main_Trabalho_POO {
 		
 		int opcao = 0;
 
-		while (opcao != 4) {
+		while (opcao != 5) {
 		    System.out.println("\n=== O MEU VIDEOCLUBE ===");
 		    System.out.println("1. Ver todos os filmes");
 		    System.out.println("2. Procurar filmes por categoria (Género)");
 		    System.out.println("3. Procurar filmes por ano de estreia");
-		    System.out.println("4. Sair do programa");
+		    System.out.println("4. Adicionar um novo filme");
+		    System.out.println("5. Sair do programa");
 		    System.out.print("Escolha uma opção: ");
 		    
 		    
@@ -347,7 +348,54 @@ public class Main_Trabalho_POO {
 		        if (!encontrouAno) {
 		            System.out.println("Nenhum filme encontrado nesse ano.");
 		        }  
+		        
 		    } else if (opcao == 4) {
+		        System.out.println("\n--- REGISTAR NOVA AQUISIÇÃO ---");
+		        Construtor_Trabalho_POO novoFilme = new Construtor_Trabalho_POO();
+		        
+		        System.out.print("Título do filme: ");
+		        novoFilme.setTitulo(Ler.umaString());
+		        
+		        System.out.print("Subtítulo do filme: ");
+		        novoFilme.setsubTitulo(Ler.umaString());
+		        
+		        System.out.print("Ano de estreia (ex: 2023): ");
+		        int ano = Ler.umInt();
+		        System.out.print("Mês de estreia (1-12): ");
+		        int mes = Ler.umInt();
+		        System.out.print("Dia de estreia (1-31): ");
+		        int dia = Ler.umInt();
+		        novoFilme.setData(LocalDate.of(ano, mes, dia));
+		        
+		        System.out.print("Idade mínima recomendada: ");
+		        novoFilme.setIdademin(Ler.umInt());
+		        
+		        System.out.print("Avaliação (ex: 8.5): ");
+		        novoFilme.setAvaliacao(Ler.umDouble());
+		        
+		        System.out.print("Duração em minutos: ");
+		        novoFilme.setDuracao(Ler.umDouble());
+		        
+		        System.out.print("Género principal: ");
+		        String[] novoGenero = {Ler.umaString()}; 
+		        novoFilme.setGenero(novoGenero);
+		        
+		        System.out.print("Diretor principal: ");
+		        String[] novoDiretor = {Ler.umaString()};
+		        novoFilme.setDiretor(novoDiretor);
+		        
+		        System.out.print("Escritor principal: ");
+		        String[] novoEscritor = {Ler.umaString()};
+		        novoFilme.setEscritor(novoEscritor);
+		        
+		        System.out.print("Estrela principal (Ator/Atriz): ");
+		        String[] novaEstrela = {Ler.umaString()};
+		        novoFilme.setEstrelas(novaEstrela);
+		        
+		        catalogoFilmes.add(novoFilme);
+		        System.out.println("\n✅ Sucesso! Filme adicionado ao catálogo.");
+		        
+		    } else if (opcao == 5) {
 		        System.out.println("\nA fechar o programa... Até logo!");
 		    } else {
 		        System.out.println("\nOpção inválida. Tente novamente.");
