@@ -97,5 +97,21 @@ public class Construtor_Trabalho_POO implements Serializable{
 	public String[] getGenero() {
 		return genero;
 	}
-
+	public String toString() {
+		String s;
+		s = "--- DADOS DO FILME ---" + "\nTítulo: " + titulo + "\nSubTítulo: " + subTitulo + "\nData de lançamento: " + data + "\nClassificação etária: " + idademin + "\nAvaliação: " + avaliacao + "\nDuração do filme: " + duracao + "\nDiretor(es) de produção: " ;
+		for(int a = 0; a<diretor.length;a++)
+			s += diretor[a] + ", ";
+		s = s + "\nEscritor(es) do filme: ";
+		for(int b = 0; b<escritor.length;b++)
+			s += escritor[b] + ", ";
+		s = s + "\nEstrela(s) do filme: ";
+		for(int c = 0; c<estrelas.length;c++)
+			s += estrelas[c] + ", ";
+		s = s + "\nGenero(s) do Filme: ";
+		for(int d = 0; d<genero.length;d++)
+			s += genero[d] + ", ";
+		return s;
+	}
+	
 }
