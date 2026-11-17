@@ -284,6 +284,58 @@ public class Main_Trabalho_POO {
 		
 		System.out.println("\nTotal de filmes no catálogo: " + catalogoFilmes.size());
 		
+		int opcao = 0;
+
+		while (opcao != 3) {
+		    System.out.println("\n=== O MEU VIDEOCLUBE ===");
+		    System.out.println("1. Ver todos os filmes");
+		    System.out.println("2. Procurar filmes por categoria (Género)");
+		    System.out.println("3. Sair do programa");
+		    System.out.print("Escolha uma opção: ");
+		    
+		    
+		    opcao = Ler.umInt(); 
+		    
+		    if (opcao == 1) {
+		        System.out.println("\n--- LISTA DE TODOS OS FILMES ---");
+		        for (int i = 0; i < catalogoFilmes.size(); i++) {
+		            System.out.println((i + 1) + ". " + catalogoFilmes.get(i).getTitulo() + 
+		                               " (" + catalogoFilmes.get(i).getData().getYear() + ")");
+		        }
+		        
+		    } else if (opcao == 2) {
+		        System.out.print("\nDigite a categoria que deseja procurar (ex: Comédia, Ação, Drama): ");
+		        String categoriaBuscada = Ler.umaString(); 
+		        
+		        System.out.println("\n--- FILMES NA CATEGORIA: " + categoriaBuscada.toUpperCase() + " ---");
+		        boolean encontrou = false;
+		        
+		        
+		        for (int i = 0; i < catalogoFilmes.size(); i++) {
+		            String[] generosDoFilme = catalogoFilmes.get(i).getGenero();
+		            
+		           
+		            if (generosDoFilme != null) {
+		                for (int j = 0; j < generosDoFilme.length; j++) {
+		                    if (generosDoFilme[j].equalsIgnoreCase(categoriaBuscada)) {
+		                        System.out.println("- " + catalogoFilmes.get(i).getTitulo());
+		                        encontrou = true;
+		                        break;
+		                    }
+		                }
+		            }
+		        }
+		        
+		        if (!encontrou) {
+		            System.out.println("Nenhum filme encontrado nesta categoria.");
+		        }
+		        
+		    } else if (opcao == 3) {
+		        System.out.println("\nA fechar o programa... Até logo!");
+		    } else {
+		        System.out.println("\nOpção inválida. Tente novamente.");
+		    }
+		}
 		
 	}
 }
