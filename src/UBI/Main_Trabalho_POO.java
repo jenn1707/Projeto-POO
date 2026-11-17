@@ -60,12 +60,12 @@ public class Main_Trabalho_POO {
 		
 		Construtor_Trabalho_POO filme3 = new Construtor_Trabalho_POO();
 		dataEstreia = LocalDate.of(2011, 9, 22);
-		filme2.setTitulo("Crazy, Stupid, Love");
-		filme2.setsubTitulo(".");
-		filme2.setData(dataEstreia);
-		filme2.setIdademin(13);
-		filme2.setAvaliacao(7.4);
-		filme2.setDuracao(118);
+		filme3.setTitulo("Crazy, Stupid, Love");
+		filme3.setsubTitulo(".");
+		filme3.setData(dataEstreia);
+		filme3.setIdademin(13);
+		filme3.setAvaliacao(7.4);
+		filme3.setDuracao(118);
 		
 		listaDiretores = new String[] {"Gleen Ficarra"};
 		listaEscritores = new String[] {"Dan Fogelman"};
