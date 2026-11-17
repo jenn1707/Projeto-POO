@@ -286,11 +286,12 @@ public class Main_Trabalho_POO {
 		
 		int opcao = 0;
 
-		while (opcao != 3) {
+		while (opcao != 4) {
 		    System.out.println("\n=== O MEU VIDEOCLUBE ===");
 		    System.out.println("1. Ver todos os filmes");
 		    System.out.println("2. Procurar filmes por categoria (Género)");
-		    System.out.println("3. Sair do programa");
+		    System.out.println("3. Procurar filmes por ano de estreia");
+		    System.out.println("4. Sair do programa");
 		    System.out.print("Escolha uma opção: ");
 		    
 		    
@@ -329,8 +330,24 @@ public class Main_Trabalho_POO {
 		        if (!encontrou) {
 		            System.out.println("Nenhum filme encontrado nesta categoria.");
 		        }
-		        
 		    } else if (opcao == 3) {
+		        System.out.print("\nDigite o ano de estreia que deseja procurar (ex: 1992): ");
+		        int anoBuscado = Ler.umInt();
+		        
+		        System.out.println("\n--- FILMES DO ANO: " + anoBuscado + " ---");
+		        boolean encontrouAno = false;
+		        
+		        for (int i = 0; i < catalogoFilmes.size(); i++) {
+		            if (catalogoFilmes.get(i).getData().getYear() == anoBuscado) {
+		                System.out.println("- " + catalogoFilmes.get(i).getTitulo());
+		                encontrouAno = true;
+		            }
+		        }
+		        
+		        if (!encontrouAno) {
+		            System.out.println("Nenhum filme encontrado nesse ano.");
+		        }  
+		    } else if (opcao == 4) {
 		        System.out.println("\nA fechar o programa... Até logo!");
 		    } else {
 		        System.out.println("\nOpção inválida. Tente novamente.");
