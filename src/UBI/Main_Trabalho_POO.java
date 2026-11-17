@@ -1,6 +1,7 @@
 package UBI;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main_Trabalho_POO {
 	public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class Main_Trabalho_POO {
 		//Filipe Pedro 55870
 		//Rodrigo Freire 56287
 		
-		
+		ArrayList<Construtor_Trabalho_POO> catalogoFilmes = new ArrayList<>();
 		
 		
 		Construtor_Trabalho_POO filme1 = new Construtor_Trabalho_POO();
@@ -33,7 +34,7 @@ public class Main_Trabalho_POO {
 		filme1.setGenero(listaGeneros);
 		System.out.println(filme1.toString());
 		
-		
+		catalogoFilmes.add(filme1);
 		
 		
 		Construtor_Trabalho_POO filme2 = new Construtor_Trabalho_POO();
@@ -56,7 +57,7 @@ public class Main_Trabalho_POO {
 		filme2.setGenero(listaGeneros);
 		
 		System.out.println("\n" + filme2.toString());
-		
+		catalogoFilmes.add(filme2);
 		
 		Construtor_Trabalho_POO filme3 = new Construtor_Trabalho_POO();
 		dataEstreia = LocalDate.of(2011, 9, 22);
@@ -78,9 +79,9 @@ public class Main_Trabalho_POO {
 		filme3.setGenero(listaGeneros);
 		
 		System.out.println("\n" + filme3.toString());
+		catalogoFilmes.add(filme3);
 		
-		
-		
+		System.out.println("\nTotal de filmes no catálogo: " + catalogoFilmes.size());
 		
 		
 	}
