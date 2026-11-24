@@ -123,7 +123,7 @@ public class Main_Trabalho_POO {
 				System.out.print("Duração em minutos: ");
 				novoFilme.setDuracao(Ler.umDouble());
 
-				System.out.print("Género principal: ");
+				System.out.print("Género principal (em portugués): ");
 				String[] novoGenero = { Ler.umaString() };
 				novoFilme.setGenero(novoGenero);
 
@@ -207,7 +207,7 @@ public class Main_Trabalho_POO {
 		filme3.setDiretor(new String[] { "Glenn Ficarra" });
 		filme3.setEscritor(new String[] { "Dan Fogelman" });
 		filme3.setEstrelas(new String[] { "Steve Carell", "Ryan Gosling", "Julianne Moore" });
-		filme3.setGenero(new String[] { "Comedy", "Romance", "Feel-Good Romance" });
+		filme3.setGenero(new String[] { "Comédia", "Romance", "Drama" });
 		catalogoFilmes.add(filme3);
 
 		// Filme 4
@@ -221,7 +221,7 @@ public class Main_Trabalho_POO {
 		filme4.setDiretor(new String[] { "Emma Tammi" });
 		filme4.setEscritor(new String[] { "Scott Cawthon" });
 		filme4.setEstrelas(new String[] { "Josh Hutcherson", "Piper Rubio", "Elizabeth Lail" });
-		filme4.setGenero(new String[] { "Horror", "Mistério", "Thriller" });
+		filme4.setGenero(new String[] { "Terror", "Mistério", "Suspense" });
 		catalogoFilmes.add(filme4);
 
 		// Filme 5
@@ -249,7 +249,7 @@ public class Main_Trabalho_POO {
 		filme6.setDiretor(new String[] { "Peter Lord" });
 		filme6.setEscritor(new String[] { "Nick Park" });
 		filme6.setEstrelas(new String[] { "Mel Gibson", "Lynn Ferguson", "Phil Daniels" });
-		filme6.setGenero(new String[] { "Aventura", "Comédia", "Stop-Motion" });
+		filme6.setGenero(new String[] { "Aventura", "Comédia", "Animação" });
 		catalogoFilmes.add(filme6);
 
 		// Filme 7
@@ -305,7 +305,7 @@ public class Main_Trabalho_POO {
 		filme10.setDiretor(new String[] { "Daniel Myrick" });
 		filme10.setEscritor(new String[] { "Daniel Myrick", "Heather Donahue" });
 		filme10.setEstrelas(new String[] { "Heather Donahue", "Michael C. Williams", "Joshua Leonard" });
-		filme10.setGenero(new String[] { "Horror", "Found Footage Horror", "Supernatural" });
+		filme10.setGenero(new String[] { "Terror", "Filmagem encontrada", "Supernatural" });
 		catalogoFilmes.add(filme10);
 
 		// Filme 11
@@ -319,7 +319,7 @@ public class Main_Trabalho_POO {
 		filme11.setDiretor(new String[] { "Henry Selick" });
 		filme11.setEscritor(new String[] { "Henry Selick", "Neil Gaiman" });
 		filme11.setEstrelas(new String[] { "Dakota Fanning", "Teri Hatcher", "John Hodgman" });
-		filme11.setGenero(new String[] { "Horror", "Dark Fantasy", "Stop Motion Animation" });
+		filme11.setGenero(new String[] { "Terror", "Fantasia", "Animação" });
 		catalogoFilmes.add(filme11);
 
 		// Filme 12
@@ -333,7 +333,7 @@ public class Main_Trabalho_POO {
 		filme12.setDiretor(new String[] { "Sean S. Cunningham" });
 		filme12.setEscritor(new String[] { "Victor Miller", "Ron Kurz" });
 		filme12.setEstrelas(new String[] { "Betsy Palmer", "Adrienne King", "Jeannine Taylor" });
-		filme12.setGenero(new String[] { "Horror", "Slasher Horror", "Teen Horror" });
+		filme12.setGenero(new String[] { "Terror", "Supernatural", "Ficção Científica" });
 		catalogoFilmes.add(filme12);
 	}
 }
