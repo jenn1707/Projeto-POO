@@ -1,8 +1,11 @@
 package UBI;
-import java.time.LocalDate;
+
 import java.io.Serializable;
-public class Construtor_Trabalho_POO implements Serializable{
+import java.time.LocalDate;
+
+public class Construtor_Trabalho_POO implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	private String titulo;
 	private String subTitulo;
 	private LocalDate data;
@@ -14,6 +17,7 @@ public class Construtor_Trabalho_POO implements Serializable{
 	private String[] estrelas;
 	private String[] genero;
 
+	// Empty constructor (used when creating a new movie step-by-step via setters)
 	public Construtor_Trabalho_POO() {
 		titulo = "";
 		subTitulo = "";
@@ -27,6 +31,23 @@ public class Construtor_Trabalho_POO implements Serializable{
 		genero = new String[0];
 	}
 
+	// Parameterized constructor (allows creating a complete movie object in one line)
+	public Construtor_Trabalho_POO(String titulo, String subTitulo, LocalDate data, int idademin,
+			double avaliacao, double duracao, String[] diretor, String[] escritor,
+			String[] estrelas, String[] genero) {
+		this.titulo = titulo;
+		this.subTitulo = subTitulo;
+		this.data = data;
+		this.idademin = idademin;
+		this.avaliacao = avaliacao;
+		this.duracao = duracao;
+		this.diretor = diretor;
+		this.escritor = escritor;
+		this.estrelas = estrelas;
+		this.genero = genero;
+	}
+
+	// Setters
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -52,66 +73,74 @@ public class Construtor_Trabalho_POO implements Serializable{
 	}
 
 	public void setDiretor(String[] diretor) {
-			this.diretor = diretor;
+		this.diretor = diretor;
 	}
 
 	public void setEscritor(String[] escritor) {
-			this.escritor = escritor;
+		this.escritor = escritor;
 	}
 
 	public void setEstrelas(String[] estrelas) {
 		this.estrelas = estrelas;
 	}
-	
+
 	public void setGenero(String[] genero) {
 		this.genero = genero;
-}
+	}
 
+	// Getters
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public String getsubTitulo() {
 		return subTitulo;
 	}
+
 	public LocalDate getData() {
 		return data;
 	}
+
 	public int getIdademin() {
 		return idademin;
 	}
+
 	public double getAvaliacao() {
 		return avaliacao;
 	}
+
 	public double getDuracao() {
 		return duracao;
 	}
+
 	public String[] getDiretor() {
 		return diretor;
 	}
+
 	public String[] getEscritor() {
 		return escritor;
 	}
+
 	public String[] getEstrelas() {
 		return estrelas;
 	}
+
 	public String[] getGenero() {
 		return genero;
 	}
+
+	@Override
 	public String toString() {
-		String s;
-		s = "--- DADOS DO FILME ---" + "\nTítulo: " + titulo + "\nSubTítulo: " + subTitulo + "\nData de lançamento: " + data + "\nClassificação etária: " + idademin + "\nAvaliação: " + avaliacao + "\nDuração do filme: " + duracao + "\nDiretor(es) de produção: " ;
-		for(int a = 0; a<diretor.length;a++)
-			s += diretor[a] + ", ";
-		s = s + "\nEscritor(es) do filme: ";
-		for(int b = 0; b<escritor.length;b++)
-			s += escritor[b] + ", ";
-		s = s + "\nEstrela(s) do filme: ";
-		for(int c = 0; c<estrelas.length;c++)
-			s += estrelas[c] + ", ";
-		s = s + "\nGenero(s) do Filme: ";
-		for(int d = 0; d<genero.length;d++)
-			s += genero[d] + ", ";
-		return s;
+		return "--- DADOS DO FILME ---"
+				+ "\nTítulo: " + titulo
+				+ "\nSubTítulo: " + subTitulo
+				+ "\nData de lançamento: " + data
+				+ "\nClassificação etária: " + idademin
+				+ "\nAvaliação: " + avaliacao
+				+ "\nDuração do filme: " + duracao
+				+ "\nDiretor(es) de produção: " + String.join(", ", diretor)
+				+ "\nEscritor(es) do filme: " + String.join(", ", escritor)
+				+ "\nEstrela(s) do filme: " + String.join(", ", estrelas)
+				+ "\nGenero(s) do Filme: " + String.join(", ", genero);
 	}
-	
 }
