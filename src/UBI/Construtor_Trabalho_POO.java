@@ -16,7 +16,10 @@ public class Construtor_Trabalho_POO implements Serializable {
 	private String[] escritor;
 	private String[] estrelas;
 	private String[] genero;
-
+	private String nomeAmigo;
+	private LocalDate dataEmprestimo;
+	private boolean emprestado;
+	
 	// Empty constructor (used when creating a new movie step-by-step via setters)
 	public Construtor_Trabalho_POO() {
 		titulo = "";
@@ -29,6 +32,10 @@ public class Construtor_Trabalho_POO implements Serializable {
 		escritor = new String[0];
 		estrelas = new String[0];
 		genero = new String[0];
+		nomeAmigo= "";
+		dataEmprestimo = null;
+		emprestado = false;
+		
 	}
 
 	// Parameterized constructor (allows creating a complete movie object in one line)
@@ -45,7 +52,10 @@ public class Construtor_Trabalho_POO implements Serializable {
 		this.escritor = escritor;
 		this.estrelas = estrelas;
 		this.genero = genero;
-	}
+		this.nomeAmigo= "";
+		this.dataEmprestimo = null;
+		this.emprestado = false;
+		}
 
 	// Setters
 	public void setTitulo(String titulo) {
@@ -87,7 +97,19 @@ public class Construtor_Trabalho_POO implements Serializable {
 	public void setGenero(String[] genero) {
 		this.genero = genero;
 	}
-
+	
+	public void setNomeAmigo(String nomeAmigo) {
+		this.nomeAmigo = nomeAmigo;
+	}
+	
+	public void setDataEmprestimo(LocalDate dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
+	
+	public void setEmprestado(boolean emprestado) {
+		this.emprestado = emprestado;
+	}
+	
 	// Getters
 	public String getTitulo() {
 		return titulo;
@@ -128,7 +150,19 @@ public class Construtor_Trabalho_POO implements Serializable {
 	public String[] getGenero() {
 		return genero;
 	}
-
+	
+	public String getNomeAmigo() {
+		return nomeAmigo;
+	}
+	
+	public LocalDate getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+	
+	public boolean isEmprestado() {
+		return emprestado;
+	}
+	
 	@Override
 	public String toString() {
 		return "--- DADOS DO FILME ---"

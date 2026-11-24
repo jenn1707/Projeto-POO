@@ -26,14 +26,17 @@ public class Main_Trabalho_POO {
 
 		int opcao = 0;
 
-		while (opcao != 6) {
+		while (opcao != 9) {
 			System.out.println("\n=== O MEU VIDEOCLUBE ===");
 			System.out.println("1. Ver todos os filmes");
 			System.out.println("2. Procurar filmes por categoria (Género)");
 			System.out.println("3. Procurar filmes por ano de estreia");
 			System.out.println("4. Adicionar um novo filme");
 			System.out.println("5. Remover um filme");
-			System.out.println("6. Sair do programa");
+			System.out.println("6. Emprestar um filme");
+			System.out.println("7. Devolver um filme");
+			System.out.println("8. Ver filmes emprestados");
+			System.out.println("9. Sair do programa");
 			System.out.print("Escolha uma opção: ");
 
 			opcao = Ler.umInt();
@@ -41,8 +44,8 @@ public class Main_Trabalho_POO {
 			if (opcao == 1) {
 				System.out.println("\n--- LISTA DE TODOS OS FILMES ---");
 				for (int i = 0; i < catalogoFilmes.size(); i++) {
-					System.out.println((i + 1) + ". " + catalogoFilmes.get(i).getTitulo() +
-							" (" + catalogoFilmes.get(i).getData().getYear() + ")");
+					System.out.println((i + 1) + ". " + catalogoFilmes.get(i).getTitulo() + " ("
+							+ catalogoFilmes.get(i).getData().getYear() + ")");
 				}
 
 			} else if (opcao == 2) {
@@ -160,11 +163,91 @@ public class Main_Trabalho_POO {
 				}
 
 			} else if (opcao == 6) {
+				System.out.println("\n--- EMPRESTAR FILME ---");
+				for (int i = 0; i < catalogoFilmes.size(); i++) {
+					Construtor_Trabalho_POO f = catalogoFilmes.get(i);
+					String estado = f.isEmprestado() ? " [EMPRESTADO a " + f.getNomeAmigo() + "]" : " [DISPONÍVEL]";
+					System.out.println((i + 1) + ". " + f.getTitulo() + estado);
+				}
+				System.out.print("Digite o número do filme a emprestar (0 para cancelar): ");
+				int indice = Ler.umInt();
+
+				if (indice > 0 && indice <= catalogoFilmes.size()) {
+					Construtor_Trabalho_POO filme = catalogoFilmes.get(indice - 1);
+					if (filme.isEmprestado()) {
+						System.out.println("Este filme já está emprestado a " + filme.getNomeAmigo() + ".");
+					} else {
+						System.out.print("Nome do amigo ou conhecido: ");
+						String amigo = Ler.umaString();
+
+						filme.setEmprestado(true);
+						filme.setNomeAmigo(amigo);
+						filme.setDataEmprestimo(LocalDate.now());
+
+						GestorFicheiros.guardarCatalogo(catalogoFilmes);
+						System.out.println("✅ Filme '" + filme.getTitulo() + "' emprestado a " + amigo + " em "
+								+ filme.getDataEmprestimo() + ".");
+					}
+				} else if (indice != 0) {
+					System.out.println("Número inválido.");
+				}
+			} else if (opcao == 7) {
+				System.out.println("\n--- DEVOLVER FILME ---");
+				boolean haEmprestados = false;
+				for (int i = 0; i < catalogoFilmes.size(); i++) {
+					Construtor_Trabalho_POO f = catalogoFilmes.get(i);
+					if (f.isEmprestado()) {
+						System.out
+								.println((i + 1) + ". " + f.getTitulo() + " (Emprestado a: " + f.getNomeAmigo() + ")");
+						haEmprestados = true;
+					}
+				}
+
+				if (!haEmprestados) {
+					System.out.println("Não há filmes emprestados neste momento.");
+				} else {
+					System.out.print("Digite o número do filme a devolver (0 para cancelar): ");
+					int indice = Ler.umInt();
+
+					if (indice > 0 && indice <= catalogoFilmes.size()) {
+						Construtor_Trabalho_POO filme = catalogoFilmes.get(indice - 1);
+						if (!filme.isEmprestado()) {
+							System.out.println("Esse filme não está emprestado.");
+						} else {
+							filme.setEmprestado(false);
+							filme.setNomeAmigo("");
+							filme.setDataEmprestimo(null);
+
+							GestorFicheiros.guardarCatalogo(catalogoFilmes);
+							System.out.println("✅ Filme '" + filme.getTitulo() + "' devolvido com sucesso!");
+						}
+					} else if (indice != 0) {
+						System.out.println("Número inválido.");
+					}
+				}
+
+			} else if (opcao == 8) {
+				System.out.println("\n--- FILMES EMPRESTADOS ---");
+				boolean haEmprestados = false;
+				for (int i = 0; i < catalogoFilmes.size(); i++) {
+					Construtor_Trabalho_POO f = catalogoFilmes.get(i);
+					if (f.isEmprestado()) {
+						System.out.println("- " + f.getTitulo() + " | Amigo: " + f.getNomeAmigo() + " | Data: "
+								+ f.getDataEmprestimo());
+						haEmprestados = true;
+					}
+				}
+
+				if (!haEmprestados) {
+					System.out.println("Todos os filmes estão disponíveis no catálogo.");
+				}
+			} else if (opcao == 9) {
 				System.out.println("\nA fechar o programa... Até logo!");
 			} else {
 				System.out.println("\nOpção inválida. Tente novamente.");
 			}
 		}
+
 	}
 
 	private static void inicializarFilmesPadrao(ArrayList<Construtor_Trabalho_POO> catalogoFilmes) {
