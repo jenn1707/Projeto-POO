@@ -285,7 +285,7 @@ public class Main_Trabalho_POO {
 		System.out.println("\nTotal de filmes no catálogo: " + catalogoFilmes.size());
 		
 		int opcao = 0;
-
+	
 		while (opcao != 5) {
 		    System.out.println("\n=== O MEU VIDEOCLUBE ===");
 		    System.out.println("1. Ver todos os filmes");
