@@ -12,10 +12,10 @@ public class Main_Trabalho_POO {
 		// Filipe Pedro 55870
 		// Rodrigo Freire 56287
 
-		// 1. Tenta carregar os filmes guardados no ficheiro permanente
+		// Tenta carregar os filmes guardados no ficheiro
 		ArrayList<Construtor_Trabalho_POO> catalogoFilmes = GestorFicheiros.carregarCatalogo();
 
-		// 2. Se o ficheiro ainda não existir (1ª execução), cria os 12 filmes iniciais e guarda-os
+		// Se o ficheiro ainda não existir, criar e guardar os 12 filmes default
 		if (catalogoFilmes.isEmpty()) {
 			System.out.println("Nenhum ficheiro encontrado. A criar catálogo inicial...");
 			inicializarFilmesPadrao(catalogoFilmes);
